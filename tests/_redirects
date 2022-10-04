@@ -1,0 +1,33 @@
+/simple /simple-redirect
+/simple/path /simple/path/redirect
+/query-string /?query=string&redirect=true
+/trailing /trailing/
+/no-trailing/ /no-trailing
+
+/placeholder/:is/:fun /placeholder/redirect/:is/:fun
+/placeholder/:query /placeholder/redirect?query=:query
+/catch-all/* /catch-all/redirect/:splat
+/placeholder/and/catch-all/:is/* /placeholder/and/catch-all/redirect/:is/:splat
+
+/external-url https://example.com
+/external-url/placeholder/:is/:fun https://example.com/:is/:fun
+/external-url/catch-all/* https://example.com/:splat
+/external-url/placeholder/and/catch-all/:is/* https://example.com/:is/:splat
+
+/status-code /status-code-redirect 301
+/status-code/query-string /status-code-redirect?query=string&redirect=true 302
+/status-code/trailing /status-code-trailing/ 303
+/status-code/no-trailing/ /status-code-no-trailing 307
+/status-code/placeholder/:is/:fun /status-code-redirect/:is/:fun 308
+/status-code/catch-all/* /status-code-redirect/:splat 301
+/status-code/placeholder/and/catch-all/:is/* /status-code-redirect/:is/:splat 302
+
+# comment
+# /status-code /status-code-redirect 301
+/invalid-to # comment
+/valid-to /valid-to-redirect # comment
+/valid-status /valid-status-redirect 301 # comment
+
+/invalid-status /invalid-status-redirect 999
+/unsupported-status /unsupported-status-redirect 200
+/no-from
