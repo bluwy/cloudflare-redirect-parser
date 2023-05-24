@@ -30,6 +30,7 @@
     "redirect",
     "parser"
   ],
+  "packageManager": "pnpm@8.5.1",
   "scripts": {
     "test": "uvu tests"
   },
