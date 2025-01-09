@@ -1,7 +1,7 @@
 {
 	"name": "cloudflare-redirect-parser",
 	"description": "Parse Cloudflare's _redirects file",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"license": "MIT",
 	"author": "Bjorn Lu",
 	"type": "module",
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/bluwy/cloudflare-redirect-parser",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bluwy/cloudflare-redirect-parser.git"
+    "url": "git+https://github.com/bluwy/cloudflare-redirect-parser.git"
   },
   "bugs": {
     "url": "https://github.com/bluwy/cloudflare-redirect-parser/issues"
