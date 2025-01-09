@@ -57,7 +57,7 @@ export function createRedirect(str) {
       if (match) {
         return {
           status: entry.status || 302,
-          to: entry._to(match)
+          to: entry._to(match),
         }
       }
     }

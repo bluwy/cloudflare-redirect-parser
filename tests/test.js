@@ -20,56 +20,56 @@ const expected = [
     to: '/simple-redirect',
     status: undefined,
     tests: {
-      '/simple': '/simple-redirect'
-    }
+      '/simple': '/simple-redirect',
+    },
   },
   {
     from: '/simple/path',
     to: '/simple/path/redirect',
     status: undefined,
     tests: {
-      '/simple/path': '/simple/path/redirect'
-    }
+      '/simple/path': '/simple/path/redirect',
+    },
   },
   {
     from: '/query-string',
     to: '/?query=string&redirect=true',
     status: undefined,
     tests: {
-      '/query-string': '/?query=string&redirect=true'
-    }
+      '/query-string': '/?query=string&redirect=true',
+    },
   },
   {
     from: '/trailing',
     to: '/trailing/',
     status: undefined,
     tests: {
-      '/trailing': '/trailing/'
-    }
+      '/trailing': '/trailing/',
+    },
   },
   {
     from: '/no-trailing/',
     to: '/no-trailing',
     status: undefined,
     tests: {
-      '/no-trailing/': '/no-trailing'
-    }
+      '/no-trailing/': '/no-trailing',
+    },
   },
   {
     from: '/placeholder/:is/:fun',
     to: '/placeholder/redirect/:is/:fun',
     status: undefined,
     tests: {
-      '/placeholder/is/fun': '/placeholder/redirect/is/fun'
-    }
+      '/placeholder/is/fun': '/placeholder/redirect/is/fun',
+    },
   },
   {
     from: '/placeholder/:query',
     to: '/placeholder/redirect?query=:query',
     status: undefined,
     tests: {
-      '/placeholder/query': '/placeholder/redirect?query=query'
-    }
+      '/placeholder/query': '/placeholder/redirect?query=query',
+    },
   },
   {
     from: '/catch-all/*',
@@ -79,8 +79,8 @@ const expected = [
       '/catch-all': undefined,
       '/catch-all/': '/catch-all/redirect/',
       '/catch-all/path': '/catch-all/redirect/path',
-      '/catch-all/path/': '/catch-all/redirect/path/'
-    }
+      '/catch-all/path/': '/catch-all/redirect/path/',
+    },
   },
   {
     from: '/placeholder/and/catch-all/:is/*',
@@ -94,24 +94,24 @@ const expected = [
       '/placeholder/and/catch-all/is/fun/path':
         '/placeholder/and/catch-all/redirect/is/fun/path',
       '/placeholder/and/catch-all/is/fun/path/':
-        '/placeholder/and/catch-all/redirect/is/fun/path/'
-    }
+        '/placeholder/and/catch-all/redirect/is/fun/path/',
+    },
   },
   {
     from: '/external-url',
     to: 'https://example.com',
     status: undefined,
     tests: {
-      '/external-url': 'https://example.com'
-    }
+      '/external-url': 'https://example.com',
+    },
   },
   {
     from: '/external-url/placeholder/:is/:fun',
     to: 'https://example.com/:is/:fun',
     status: undefined,
     tests: {
-      '/external-url/placeholder/is/fun': 'https://example.com/is/fun'
-    }
+      '/external-url/placeholder/is/fun': 'https://example.com/is/fun',
+    },
   },
   {
     from: '/external-url/catch-all/*',
@@ -121,8 +121,8 @@ const expected = [
       '/external-url/catch-all': undefined,
       '/external-url/catch-all/': 'https://example.com/',
       '/external-url/catch-all/path': 'https://example.com/path',
-      '/external-url/catch-all/path/': 'https://example.com/path/'
-    }
+      '/external-url/catch-all/path/': 'https://example.com/path/',
+    },
   },
   {
     from: '/external-url/placeholder/and/catch-all/:is/*',
@@ -136,16 +136,16 @@ const expected = [
       '/external-url/placeholder/and/catch-all/is/fun/path':
         'https://example.com/is/fun/path',
       '/external-url/placeholder/and/catch-all/is/fun/path/':
-        'https://example.com/is/fun/path/'
-    }
+        'https://example.com/is/fun/path/',
+    },
   },
   {
     from: '/status-code',
     to: '/status-code-redirect',
     status: 301,
     tests: {
-      '/status-code': '/status-code-redirect'
-    }
+      '/status-code': '/status-code-redirect',
+    },
   },
   {
     from: '/status-code/query-string',
@@ -153,32 +153,32 @@ const expected = [
     status: 302,
     tests: {
       '/status-code/query-string':
-        '/status-code-redirect?query=string&redirect=true'
-    }
+        '/status-code-redirect?query=string&redirect=true',
+    },
   },
   {
     from: '/status-code/trailing',
     to: '/status-code-trailing/',
     status: 303,
     tests: {
-      '/status-code/trailing': '/status-code-trailing/'
-    }
+      '/status-code/trailing': '/status-code-trailing/',
+    },
   },
   {
     from: '/status-code/no-trailing/',
     to: '/status-code-no-trailing',
     status: 307,
     tests: {
-      '/status-code/no-trailing/': '/status-code-no-trailing'
-    }
+      '/status-code/no-trailing/': '/status-code-no-trailing',
+    },
   },
   {
     from: '/status-code/placeholder/:is/:fun',
     to: '/status-code-redirect/:is/:fun',
     status: 308,
     tests: {
-      '/status-code/placeholder/is/fun': '/status-code-redirect/is/fun'
-    }
+      '/status-code/placeholder/is/fun': '/status-code-redirect/is/fun',
+    },
   },
   {
     from: '/status-code/catch-all/*',
@@ -188,8 +188,8 @@ const expected = [
       '/status-code/catch-all': undefined,
       '/status-code/catch-all/': '/status-code-redirect/',
       '/status-code/catch-all/path': '/status-code-redirect/path',
-      '/status-code/catch-all/path/': '/status-code-redirect/path/'
-    }
+      '/status-code/catch-all/path/': '/status-code-redirect/path/',
+    },
   },
   {
     from: '/status-code/placeholder/and/catch-all/:is/*',
@@ -203,41 +203,41 @@ const expected = [
       '/status-code/placeholder/and/catch-all/is/fun/path':
         '/status-code-redirect/is/fun/path',
       '/status-code/placeholder/and/catch-all/is/fun/path/':
-        '/status-code-redirect/is/fun/path/'
-    }
+        '/status-code-redirect/is/fun/path/',
+    },
   },
   {
     from: '/valid-to',
     to: '/valid-to-redirect',
     status: undefined,
     tests: {
-      '/valid-to': '/valid-to-redirect'
-    }
+      '/valid-to': '/valid-to-redirect',
+    },
   },
   {
     from: '/valid-status',
     to: '/valid-status-redirect',
     status: 301,
     tests: {
-      '/valid-status': '/valid-status-redirect'
-    }
+      '/valid-status': '/valid-status-redirect',
+    },
   },
   {
     from: '/invalid-status',
     to: '/invalid-status-redirect',
     status: 999,
     tests: {
-      '/invalid-status': undefined
-    }
+      '/invalid-status': undefined,
+    },
   },
   {
     from: '/unsupported-status',
     to: '/unsupported-status-redirect',
     status: 200,
     tests: {
-      '/unsupported-status': undefined
-    }
-  }
+      '/unsupported-status': undefined,
+    },
+  },
 ]
 
 describe('parse _redirects file', () => {
