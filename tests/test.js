@@ -1,7 +1,7 @@
+import { describe, test } from 'node:test'
+import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
-import { suite } from 'uvu'
-import * as assert from 'uvu/assert'
 import { parse, createRedirect } from '../index.js'
 
 const redirects = await fs.readFile(
@@ -240,33 +240,31 @@ const expected = [
   }
 ]
 
-const _parse = suite('parse _redirects file')
-_parse('length', () => {
+describe('parse _redirects file', () => {
   assert.equal(parsed.length, expected.length)
-})
-for (let i = 0; i < expected.length; i++) {
-  const e = expected[i]
-  const p = parsed[i]
-  _parse(e.from, () => {
-    assert.equal(e.from, p.from)
-    assert.equal(e.to, p.to)
-    assert.equal(e.status, p.status)
-  })
-}
-_parse.run()
-
-const _redirect = suite('redirect function')
-for (const e of expected) {
-  for (const [k, v] of Object.entries(e.tests)) {
-    _redirect(`${e.from} - ${k}`, () => {
-      const r = redirect(k)
-      if (v === undefined) {
-        assert.equal(r, undefined)
-      } else {
-        assert.equal(r?.to, v)
-        assert.equal(r?.status, e.status || 302)
-      }
+  for (let i = 0; i < expected.length; i++) {
+    const e = expected[i]
+    const p = parsed[i]
+    test(e.from, () => {
+      assert.equal(e.from, p.from)
+      assert.equal(e.to, p.to)
+      assert.equal(e.status, p.status)
     })
   }
-}
-_redirect.run()
+})
+
+describe('redirect function', () => {
+  for (const e of expected) {
+    for (const [k, v] of Object.entries(e.tests)) {
+      test(`${e.from} - ${k}`, () => {
+        const r = redirect(k)
+        if (v === undefined) {
+          assert.equal(r, undefined)
+        } else {
+          assert.equal(r?.to, v)
+          assert.equal(r?.status, e.status || 302)
+        }
+      })
+    }
+  }
+})
